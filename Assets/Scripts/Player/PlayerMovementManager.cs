@@ -6,7 +6,7 @@ namespace Player
 {
     public class PlayerMovementManager : MonoBehaviour
     {
-        private PlayerManager playerManager;
+        protected PlayerManager playerManager;
         
         [Header("Movement Attributes")] 
         [SerializeField] private float walkSpeed = 5f;
@@ -28,16 +28,19 @@ namespace Player
         [SerializeField]private float minPitch;
         [SerializeField] private float maxPitch;
 
-        private void Awake()
+        public virtual void Awake()
         {
             playerManager = GetComponent<PlayerManager>();
         }
 
         // Update is called once per frame
-        private void Update() {
+        private void Update() 
+        {
             if (playerManager.InputManager.IsBlocked) return;
-            HandleMovement();
             HandleRotation();
+            
+            if (playerManager.CharacterController.enabled)
+                HandleMovement();
         }
 
         private void HandleMovement()
