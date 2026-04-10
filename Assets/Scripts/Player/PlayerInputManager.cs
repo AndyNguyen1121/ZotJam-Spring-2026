@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Object = System.Object;
 
 namespace Player
 {
@@ -17,6 +19,10 @@ namespace Player
         public Vector2 MovementInput => movementInput;
         public Vector2 MouseInput => mouseInput;
         public bool IsSprinting => isSprinting;
+
+        private List<Object> _blockers = new List<Object>();
+        
+        public bool IsBlocked => _blockers.Count > 0;
 
         private void Start()
         {
@@ -41,8 +47,8 @@ namespace Player
             PlayerInput.actions["Look"].performed -= OnLook;
         }
 
-        private void OnMove(InputAction.CallbackContext ctx)
-        {
+        private void OnMove(InputAction.CallbackContext ctx) {
+            if (_blockers.Count > 0) return;
             movementInput = ctx.ReadValue<Vector2>();
         }
         private void OnMoveCanceled(InputAction.CallbackContext ctx)
@@ -53,7 +59,16 @@ namespace Player
         {
             mouseInput = ctx.ReadValue<Vector2>();
         }
-        
-        
+
+        public void BlockInput(Object blocker) {
+            _blockers.Add(blocker);
+            if (_blockers.Count == 1) {
+                OnMoveCanceled(new InputAction.CallbackContext());
+            }
+        }
+
+        public void UnblockInput(Object blocker) {
+            _blockers.Remove(blocker);
+        }
     }
 }

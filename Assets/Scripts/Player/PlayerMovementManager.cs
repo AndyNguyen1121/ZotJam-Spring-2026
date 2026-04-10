@@ -34,8 +34,8 @@ namespace Player
         }
 
         // Update is called once per frame
-        private void Update()
-        {
+        private void Update() {
+            if (playerManager.InputManager.IsBlocked) return;
             HandleMovement();
             HandleRotation();
         }
