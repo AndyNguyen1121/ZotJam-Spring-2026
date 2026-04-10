@@ -4,8 +4,13 @@ using UnityEngine;
 
 namespace Interaction {
     public class InteractionPopup : MonoBehaviour {
-        [SerializeField] private Animator animator;
         [SerializeField] private PlayerInteractionManager player;
+
+        private Animator _animator;
+        
+        private void Awake() {
+            TryGetComponent(out _animator);
+        }
 
         private void OnEnable() {
             player.OnInteractionAvailable += ShowInteractionPopup;
@@ -17,11 +22,11 @@ namespace Interaction {
         }
         
         private void ShowInteractionPopup() {
-            animator.SetBool("Open", true);
+            _animator.SetBool("Visible", true);
         }
 
         private void HideInteractionPopup() {
-            animator.SetBool("Open", false);
+            _animator.SetBool("Visible", false);
         }
     }
 }

@@ -45,9 +45,8 @@ namespace Player {
                 }
             }
             
-            
             if (size > 1) {
-                Debug.LogWarning("Multiple interactables in range, choosing the first one");
+                // Debug.LogWarning("Multiple interactables in range, choosing the first one");
             }
         }
         

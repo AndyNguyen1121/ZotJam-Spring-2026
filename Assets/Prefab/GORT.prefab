@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 4696552781186238916}
   - component: {fileID: 6893070796750851942}
   - component: {fileID: 8537231391327638805}
+  - component: {fileID: 7292874024132686390}
   m_Layer: 6
   m_Name: GORT
   m_TagString: Gort
@@ -235,3 +236,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7406284947553022063}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &7292874024132686390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7406284947553022063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e87c492d334b4b99279d25d9a39445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 1
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  playerInputManager: {fileID: 7390246868612771992}
+  playerManager: {fileID: 4162212312740597275}

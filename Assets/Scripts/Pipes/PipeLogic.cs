@@ -22,7 +22,7 @@ namespace Pipes {
             goobert.EnterPipe();
             SplineAnimate animator = goobert.gameObject.AddComponent<SplineAnimate>();
             animator.Container = _spline;
-            animator.Easing = SplineAnimate.EasingMode.EaseOut;
+            animator.Easing = SplineAnimate.EasingMode.None;
             animator.Loop = SplineAnimate.LoopMode.Once;
             animator.AnimationMethod = SplineAnimate.Method.Speed;
             animator.MaxSpeed = moveSpeed;
