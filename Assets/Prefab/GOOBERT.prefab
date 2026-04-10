@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7414762395785375996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2214806758158443464}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.54, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 9667216972682620}
   - component: {fileID: 2153708198061102765}
   - component: {fileID: 7905419425881583018}
-  - component: {fileID: 5320752913400781116}
   - component: {fileID: 5520828944451567912}
   - component: {fileID: 5942942256793815092}
   - component: {fileID: 8863619595412966150}
+  - component: {fileID: 2638698876312642585}
   m_Layer: 6
   m_Name: GOOBERT
   m_TagString: Untagged
@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 7905419425881583018}
-  movementManager: {fileID: 5320752913400781116}
+  movementManager: {fileID: 0}
   characterController: {fileID: 9667216972682620}
-  cameraTarget: {fileID: 1412710103647984049}
+  cameraTarget: {fileID: 7414762395785375996}
 --- !u!114 &7905419425881583018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,30 +128,6 @@ MonoBehaviour:
   movementInput: {x: 0, y: 0}
   mouseInput: {x: 0, y: 0}
   isSprinting: 0
---- !u!114 &5320752913400781116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6592194451549774105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7674a3ed7e2c44dba8069b0524760c0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 5
-  sprintSpeed: 12
-  rotationSpeed: 10
-  gravity: -9.81
-  jumpHeight: 3
-  groundCheckRadius: 0.29
-  groundCheckOffset: {x: 0, y: -0.98, z: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  minPitch: -70
-  maxPitch: 70
 --- !u!114 &5520828944451567912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +211,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6592194451549774105}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2638698876312642585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6592194451549774105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b314988165d45d84bbba9dd9506b1eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  sprintSpeed: 12
+  rotationSpeed: 10
+  gravity: -9.81
+  jumpHeight: 3
+  groundCheckRadius: 0.29
+  groundCheckOffset: {x: 0, y: -0.32, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  minPitch: -70
+  maxPitch: 70
