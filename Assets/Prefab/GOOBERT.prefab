@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7905419425881583018}
   - component: {fileID: 5520828944451567912}
   - component: {fileID: 2638698876312642585}
+  - component: {fileID: 2656815151697263091}
   m_Layer: 6
   m_Name: GOOBERT
   m_TagString: Goobert
@@ -111,6 +112,9 @@ MonoBehaviour:
   characterController: {fileID: 9667216972682620}
   cameraTarget: {fileID: 7414762395785375996}
   mesh: {fileID: 7837898660373476234}
+  gortHead: {fileID: 0}
+  timeElapsedSinceLastOnGort: 0
+  isOnGort: 0
 --- !u!114 &7905419425881583018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +186,24 @@ MonoBehaviour:
     m_Bits: 1
   minPitch: -70
   maxPitch: 70
+--- !u!114 &2656815151697263091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6592194451549774105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e87c492d334b4b99279d25d9a39445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRadius: 2
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  playerInputManager: {fileID: 7905419425881583018}
+  playerManager: {fileID: 2153708198061102765}
 --- !u!1 &7837898660373476234
 GameObject:
   m_ObjectHideFlags: 0

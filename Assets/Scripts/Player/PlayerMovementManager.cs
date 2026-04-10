@@ -59,7 +59,6 @@ namespace Player
             {
                 // adjust for gravity
                 verticalVelocity += gravity * Time.deltaTime;
-                Debug.Log("Gravity: " + verticalVelocity);
             }
             else
             {

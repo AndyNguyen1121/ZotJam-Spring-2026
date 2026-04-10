@@ -19,6 +19,7 @@ namespace Player
         public Vector2 MovementInput => movementInput;
         public Vector2 MouseInput => mouseInput;
         public bool IsSprinting => isSprinting;
+        public event Action OnInteract;
 
         private List<Object> _blockers = new List<Object>();
         
@@ -36,10 +37,12 @@ namespace Player
             PlayerInput.actions["Move"].performed += OnMove;
             PlayerInput.actions["Move"].canceled += OnMoveCanceled;
             PlayerInput.actions["Look"].performed += OnLook;
+            PlayerInput.actions["Interact"].performed += OnInteractPressed;
+            PlayerInput.actions["Sprint"].started += ctx => isSprinting = true;
             PlayerInput.actions["Sprint"].performed += ctx => isSprinting = true;
             PlayerInput.actions["Sprint"].canceled += ctx => isSprinting = false;
         }
-
+        
         private void OnDisable()
         {
             PlayerInput.actions["Move"].performed -= OnMove;
@@ -57,7 +60,13 @@ namespace Player
         }
         private void OnLook(InputAction.CallbackContext ctx)
         {
+            if (_blockers.Count > 0) return;
             mouseInput = ctx.ReadValue<Vector2>();
+        }
+        
+        private void OnInteractPressed(InputAction.CallbackContext _) {
+            if (_blockers.Count > 0) return;
+            OnInteract?.Invoke();
         }
 
         public void BlockInput(Object blocker) {
@@ -70,5 +79,6 @@ namespace Player
         public void UnblockInput(Object blocker) {
             _blockers.Remove(blocker);
         }
+        
     }
 }
