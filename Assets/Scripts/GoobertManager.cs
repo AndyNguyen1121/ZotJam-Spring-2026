@@ -8,16 +8,34 @@ public class GoobertManager : PlayerManager
     [SerializeField] private GameObject mesh;
     [SerializeField] private Transform gortHead;
 
+    [SerializeField] private float timeElapsedSinceLastOnGort;
+
     
-    private bool _isOnGort = false;
+    public bool isOnGort = false;
 
     public void Awake() 
     {
     }
 
+    private void Update()
+    {
+        if (isOnGort)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                timeElapsedSinceLastOnGort = 0;
+                DetachGoobertFromGort();
+            }
+        }
+        else
+        {
+            timeElapsedSinceLastOnGort += Time.deltaTime;
+        }
+    }
+
     public void LateUpdate()
     {
-        if (_isOnGort)
+        if (isOnGort)
         {
             transform.position = gortHead.position;
         }
@@ -25,7 +43,7 @@ public class GoobertManager : PlayerManager
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("GoobertAttacher") &&  !_isOnGort)
+        if (other.gameObject.CompareTag("GoobertAttacher") &&  !isOnGort && timeElapsedSinceLastOnGort > 5f)
         {
             AttachGoobertToGort();
         }
@@ -35,7 +53,14 @@ public class GoobertManager : PlayerManager
     private void AttachGoobertToGort()
     {
         CharacterController.enabled = false;
-        _isOnGort = true;
+        isOnGort = true;
+    }
+    
+    private void DetachGoobertFromGort()
+    {
+        CharacterController.enabled = true;
+        isOnGort = false;
+        MovementManager.Jump();
     }
 
     public void EnterPipe() {

@@ -59,6 +59,7 @@ namespace Player
             {
                 // adjust for gravity
                 verticalVelocity += gravity * Time.deltaTime;
+                Debug.Log("Gravity: " + verticalVelocity);
             }
             else
             {
@@ -102,6 +103,11 @@ namespace Player
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position + groundCheckOffset, groundCheckRadius);
+        }
+
+        public void Jump()
+        {
+            verticalVelocity = (-2f * jumpHeight * gravity);
         }
     }
 }
