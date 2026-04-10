@@ -151,7 +151,7 @@ MonoBehaviour:
   inputManager: {fileID: 7390246868612771992}
   movementManager: {fileID: 1635764679271991622}
   characterController: {fileID: 4431737841203287745}
-  cameraTarget: {fileID: 8827580669114322648}
+  cameraTarget: {fileID: 1521891641229605545}
 --- !u!114 &4696552781186238916
 MonoBehaviour:
   m_ObjectHideFlags: 0
