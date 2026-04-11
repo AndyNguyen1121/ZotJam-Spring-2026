@@ -1,7 +1,6 @@
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Unity.UI;
 using UnityEngine.UI;
 
 public class PlayerSwitchManager : MonoBehaviour

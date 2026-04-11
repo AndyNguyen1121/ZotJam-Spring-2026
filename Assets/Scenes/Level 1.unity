@@ -2466,6 +2466,7 @@ GameObject:
   - component: {fileID: 1966896548}
   - component: {fileID: 1966896549}
   - component: {fileID: 1966896550}
+  - component: {fileID: 1966896551}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -2507,7 +2508,7 @@ MonoBehaviour:
   pressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1966896551}
         m_TargetAssemblyTypeName: PuzzleObjects.Door, Assembly-CSharp
         m_MethodName: OpenDoor
         m_Mode: 1
@@ -2522,7 +2523,7 @@ MonoBehaviour:
   unpressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1966896551}
         m_TargetAssemblyTypeName: PuzzleObjects.Door, Assembly-CSharp
         m_MethodName: CloseDoor
         m_Mode: 1
@@ -2556,6 +2557,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1966896551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966896547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe5f68b2b79495b9a62286c57b1b29b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2012651121
 GameObject:
   m_ObjectHideFlags: 0
