@@ -12,7 +12,7 @@ public class ElevatorButton : MonoBehaviour, Interactable
    {
       if (movingPlatform.splineAnimator != null && !movingPlatform.splineAnimator.IsPlaying)
       {
-         movingPlatform.splineAnimator.Play();
+         movingPlatform.ActivatePlatform();
       }
          
    }

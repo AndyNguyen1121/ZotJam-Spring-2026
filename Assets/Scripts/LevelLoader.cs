@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour {
         LoadLevels();
 #endif
         
-        FadeManager.Instance.FadeFromBlack();
+        //FadeManager.Instance.FadeFromBlack();
     }
     private void LoadLevels() {
         SceneManager.LoadScene(Level1, LoadSceneMode.Additive);
