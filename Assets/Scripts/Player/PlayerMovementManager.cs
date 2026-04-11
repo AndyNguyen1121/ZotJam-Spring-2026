@@ -37,7 +37,9 @@ namespace Player
         private void Update() 
         {
             if (playerManager.InputManager.IsBlocked) return;
-            HandleRotation();
+            
+            if (playerManager.InputManager.PlayerInput.inputIsActive)
+                HandleRotation();
             
             if (playerManager.CharacterController.enabled)
                 HandleMovement();

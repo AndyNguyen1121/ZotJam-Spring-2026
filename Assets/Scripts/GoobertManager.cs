@@ -7,9 +7,9 @@ using UnityEngine.Splines;
 
 public class GoobertManager : PlayerManager 
 {
+    [SerializeField] GortManager gortManager;
     [SerializeField] private GameObject mesh;
     [SerializeField] private Transform gortHead;
-
     [SerializeField] private float timeElapsedSinceLastOnGort;
 
     
@@ -26,7 +26,8 @@ public class GoobertManager : PlayerManager
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 timeElapsedSinceLastOnGort = 0;
-                DetachGoobertFromGort();
+                DetachGoobertFromSocket();
+                MovementManager.Jump();
             }
         }
         else
@@ -47,7 +48,8 @@ public class GoobertManager : PlayerManager
     {
         if (other.gameObject.CompareTag("GoobertAttacher") &&  !isOnGort && timeElapsedSinceLastOnGort > 5f)
         {
-            AttachGoobertToGort();
+            if (gortManager.canGrab)
+                AttachGoobertToGort();
         }
     }
     
@@ -55,14 +57,16 @@ public class GoobertManager : PlayerManager
     private void AttachGoobertToGort()
     {
         CharacterController.enabled = false;
+        gortManager.isCarryingGoobert = true;
         isOnGort = true;
     }
     
-    private void DetachGoobertFromGort()
+    public void DetachGoobertFromSocket()
     {
         CharacterController.enabled = true;
+        transform.parent = null;
         isOnGort = false;
-        MovementManager.Jump();
+        gortManager.isCarryingGoobert = false;
     }
 
     public void EnterPipe() {
@@ -74,4 +78,18 @@ public class GoobertManager : PlayerManager
         InputManager.UnblockInput(this);
         mesh.SetActive(true);
     }
+
+    public void AttachGoobertToSocket(Transform socket)
+    {
+        // deattach from current socket
+        DetachGoobertFromSocket();
+        
+        // attach to new socket
+        CharacterController.enabled = false;
+        transform.parent = socket;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+    }
+    
+    
 }

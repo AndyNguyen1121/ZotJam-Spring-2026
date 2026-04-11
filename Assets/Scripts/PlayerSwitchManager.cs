@@ -18,9 +18,7 @@ public class PlayerSwitchManager : MonoBehaviour
     void Start()
     {
         goobert_PI.enabled = true;
-        goobert_MM.enabled = true;
         gort_PI.enabled = false;
-        gort_MM.enabled = false;
 
         if (goobert_UI) {
             goobert_UI.color = Color.white;
@@ -33,10 +31,8 @@ public class PlayerSwitchManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             goobert_PI.enabled = !goobert_PI.enabled;
-            goobert_MM.enabled = !goobert_MM.enabled;
             gort_PI.enabled = !gort_PI.enabled;
-            gort_MM.enabled = !gort_MM.enabled;
-
+            
             if (goobert_UI) {
                 (goobert_UI.color, gort_UI.color) = (gort_UI.color, goobert_UI.color);
             }
