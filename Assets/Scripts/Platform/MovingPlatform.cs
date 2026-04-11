@@ -6,11 +6,13 @@ namespace Platform
 {
     public class MovingPlatform : MonoBehaviour
     {
-        public SplineAnimate splineAnimator;
+        public SplineAnimate splineAnimator;    
         private void Awake()
         {
             splineAnimator = GetComponent<SplineAnimate>();
             splineAnimator.Completed += () => splineAnimator.Pause();
+            splineAnimator.Pause();
+            splineAnimator.PlayOnAwake = false;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -44,6 +46,14 @@ namespace Platform
                     }
                 }
                 other.transform.SetParent(null);
+            }
+        }
+
+        public void ActivatePlatform()
+        {
+            if (splineAnimator != null && !splineAnimator.IsPlaying)
+            { 
+                splineAnimator.Play();
             }
         }
     }
