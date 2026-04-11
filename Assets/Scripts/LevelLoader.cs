@@ -1,4 +1,5 @@
 using System;
+using MainMenu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,8 @@ public class LevelLoader : MonoBehaviour {
 #else
         LoadLevels();
 #endif
+        
+        FadeManager.Instance.FadeFromBlack();
     }
     private void LoadLevels() {
         SceneManager.LoadScene(Level1, LoadSceneMode.Additive);
