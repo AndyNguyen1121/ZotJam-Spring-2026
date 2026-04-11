@@ -11,6 +11,8 @@ public class PlayerSwitchManager : MonoBehaviour
     [SerializeField] private PlayerMovementManager goobert_MM;
     [SerializeField] private PlayerMovementManager gort_MM;
     
+    [SerializeField] 
+    
     void Start()
     {
         goobert_PI.enabled = true;
