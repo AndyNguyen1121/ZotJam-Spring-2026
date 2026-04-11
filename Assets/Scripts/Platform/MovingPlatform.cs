@@ -1,10 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Platform
 {
     public class MovingPlatform : MonoBehaviour
     {
+        public SplineAnimate splineAnimator;
+        private void Awake()
+        {
+            splineAnimator = GetComponent<SplineAnimate>();
+            splineAnimator.Completed += () => splineAnimator.Pause();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Gort") || other.CompareTag("Goobert") || other.CompareTag("Crate"))
