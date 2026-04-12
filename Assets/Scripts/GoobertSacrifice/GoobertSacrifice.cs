@@ -9,6 +9,7 @@ namespace GoobertSacrifice
     {
         public Transform GoobertSocket;
         public float unlockDelay = 3f;
+        public bool isPressed = false;
         public void Activate(PlayerManager playerManager)
         {
             if (playerManager is GortManager gortManager)
@@ -18,6 +19,7 @@ namespace GoobertSacrifice
                     gortManager.SacrificeGoobert(GoobertSocket);
                     gortManager.canGrab = false;
                     StartCoroutine(SacrificeGoobertSequence(playerManager));    
+                    isPressed = true;
                 }
             }
             Debug.Log("Goobert Sacrifice activated");
