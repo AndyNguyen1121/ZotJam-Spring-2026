@@ -13,5 +13,10 @@ namespace PuzzleObjects {
         public GameObject GetGameObject() {
             return gameObject;
         }
+
+        public bool CanInteract(PlayerManager playerManager)
+        {
+            return true;
+        }
     }
 }

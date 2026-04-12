@@ -39,5 +39,10 @@ namespace GoobertSacrifice
                 gortManager.FreeGoobert();
             }
         }
+
+        public bool CanInteract(PlayerManager playerManager)
+        {
+            return playerManager is GortManager;
+        }
     }
 }

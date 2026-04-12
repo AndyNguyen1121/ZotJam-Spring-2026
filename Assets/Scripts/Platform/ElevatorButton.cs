@@ -21,4 +21,9 @@ public class ElevatorButton : MonoBehaviour, Interactable
    {
       return gameObject;
    }
+
+   public bool CanInteract(PlayerManager playerManager)
+   {
+      return true;
+   }
 }

@@ -36,10 +36,13 @@ namespace Player {
             if (size > 0) {
                 if ((_currentInteractable == null || results[0].gameObject != _currentInteractable.GetGameObject())) {
                     _currentInteractable = results[0].GetComponent<Interactable>();
-                    OnInteractionAvailable?.Invoke();
+                    
+                    if (_currentInteractable.CanInteract(playerManager))
+                        OnInteractionAvailable?.Invoke();
                 }
-            } else {
-                if (_currentInteractable != null) {
+            } 
+            else {
+                if (_currentInteractable != null || (_currentInteractable != null && !_currentInteractable.CanInteract(playerManager))) {
                     OnInteractionUnavailable?.Invoke();
                     _currentInteractable = null;
                 }
