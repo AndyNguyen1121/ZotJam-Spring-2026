@@ -38,10 +38,7 @@ public class GoobertManager : PlayerManager
 
     public void LateUpdate()
     {
-        if (isOnGort)
-        {
-            transform.position = gortHead.position;
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,6 +56,9 @@ public class GoobertManager : PlayerManager
         CharacterController.enabled = false;
         gortManager.isCarryingGoobert = true;
         isOnGort = true;
+        transform.parent = gortHead;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
     
     public void DetachGoobertFromSocket()
