@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 178198cea45b2a94581114ba7361d1be
+guid: ca5a074b79261184aa439fc02a12ea17
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black color
+    second: {fileID: 2100000, guid: 5b6fd153cbba2ce4184de7e49ff8424e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glow
+    second: {fileID: 2100000, guid: 6d098bb5edb2eb343919f6a0a1f0fd2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: goobert white
+    second: {fileID: 2100000, guid: 5b6fd153cbba2ce4184de7e49ff8424e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
